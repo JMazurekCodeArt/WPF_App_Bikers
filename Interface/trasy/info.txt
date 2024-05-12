@@ -1,0 +1,6 @@
+canvas_1.png ROAD1 7.0 00:30 MEDIUM
+canvas_2.png ROAD2 12.5 01:05 HARD
+canvas_3.png ROAD3 6 00:20 EASY
+canvas_5.png LONG_TRIP 15.3 01:15 HARD
+canvas_6.png AROUND 31.6 02:35 HARD
+canvas_7.png Small_circle 2 00:10 EASY

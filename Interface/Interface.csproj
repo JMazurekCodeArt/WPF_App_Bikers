@@ -1,0 +1,83 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <SSDTUnitTestPath Condition="'$(SSDTUnitTestPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB</SSDTUnitTestPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SSDTPath Condition="'$(SSDTPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB\DAC</SSDTPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="bike.png" />
+    <None Remove="clear.png" />
+    <None Remove="dif.png" />
+    <None Remove="dis.png" />
+    <None Remove="mapa.jpg" />
+    <None Remove="mapa.png" />
+    <None Remove="save.png" />
+    <None Remove="timer.png" />
+    <None Remove="trasy\canvas_1.png" />
+    <None Remove="trasy\canvas_2.png" />
+    <None Remove="trasy\canvas_3.png" />
+    <None Remove="trasy\canvas_4.png" />
+    <None Remove="trasy\canvas_5.png" />
+    <None Remove="trasy\canvas_6.png" />
+    <None Remove="trasy\canvas_7.png" />
+    <None Remove="wys.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="clear.png" />
+    <Resource Include="mapa.png" />
+    <Resource Include="trasy\canvas_1.png" />
+    <Resource Include="trasy\canvas_2.png" />
+    <Resource Include="trasy\canvas_3.png" />
+    <Resource Include="trasy\canvas_4.png" />
+    <Resource Include="trasy\canvas_5.png" />
+    <Resource Include="trasy\canvas_6.png" />
+    <Resource Include="trasy\canvas_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="GMap.NET.Core" Version="2.1.7" />
+    <PackageReference Include="GMap.Net.WPF" Version="1.0.0.1" />
+    <PackageReference Include="Microsoft.Maps.MapControl.WPF" Version="1.0.0.3" />
+    <PackageReference Include="SQLite" Version="3.13.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bike.png" />
+    <Resource Include="dif.png" />
+    <Resource Include="dis.png" />
+    <Resource Include="mapa.jpg" />
+    <Resource Include="save.png" />
+    <Resource Include="timer.png">
+      <CopyToOutputDirectory>
+      </CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup Condition="$(VisualStudioVersion) == '17.0'">
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(SSDTPath)\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql.UnitTesting, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(SSDTUnitTestPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(SSDTUnitTestPath)\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup>
+    <SsdtUnitTestVersion>3.1</SsdtUnitTestVersion>
+  </PropertyGroup>
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="$(VisualStudioVersion) != '15.0' And '$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="$(VisualStudioVersion) != '15.0' And '$(SQLDBExtensionsRefPath)' == ''" />
+</Project>

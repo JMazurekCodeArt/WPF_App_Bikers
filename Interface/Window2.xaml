@@ -1,0 +1,44 @@
+﻿<Window x:Class="Interface.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gm="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
+        xmlns:local="clr-namespace:Interface"
+        mc:Ignorable="d"
+        Title="Bikers" Height="900" Width="1200" Background="lightGray" ResizeMode="NoResize">
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="Icon">
+                <Setter.Value>
+                    <ImageSource>bike.png</ImageSource>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Style>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="40" />
+            <Setter Property="FontFamily" Value="Bahnschrift Condensed" />
+
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="175"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="/bike.png" Grid.Row="0"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="325, 0 ,0 ,0" Height="200" Width="200"/>
+        <TextBlock Text="BIKERS  " PreviewMouseDown="Bikers2_OnClick" Grid.Row="0" Margin="0, 0, 300, 0"  FontSize="140" FontFamily="Bahnschrift Condensed" HorizontalAlignment="Right" VerticalAlignment="Center" />
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="0">
+            <StackPanel Name="stackPanel">
+
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</Window>
